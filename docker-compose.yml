@@ -1,0 +1,11 @@
+services:
+  app:
+    container_name: vintage_story_dedicated_server
+    image: vintage_story_dedicated_server:latest
+    build: .
+    env_file: .env
+    tty: true
+    ports:
+      - 42420:42420/tcp #Default Port
+    volumes:
+      - ./data:/data
