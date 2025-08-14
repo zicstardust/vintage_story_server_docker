@@ -9,13 +9,8 @@ RUN apt-get update && apt-get install -y wget; \
     tar xzf vs_server_linux-x64_${SERVER_VERSION}.tar.gz; \
     rm -f vs_server_linux-x64_${SERVER_VERSION}.tar.gz
 
-
 RUN wget https://packages.microsoft.com/config/debian/12/packages-microsoft-prod.deb -O /app/packages-microsoft-prod.deb
 
-
-#RUN sed -i "s|VSPATH='/home/vintagestory/server'|VSPATH='/app'|" /app/server.sh
-
-#RUN sed -i "s|DATAPATH='/var/vintagestory/data'|DATAPATH='/data'|" /app/server.sh
 
 
 FROM debian:12-slim
@@ -41,5 +36,4 @@ VOLUME [ "/data" ]
 
 ENTRYPOINT [ "/entrypoint.sh" ]
 
-#CMD [ "/app/server.sh", "start" ]
 CMD [ "dotnet", "/app/VintagestoryServer.dll", "--dataPath", "/data" ]
