@@ -20,9 +20,6 @@ RUN wget https://packages.microsoft.com/config/debian/12/packages-microsoft-prod
 
 FROM debian:12-slim
 
-ENV UID=1000
-ENV GID=1000
-
 WORKDIR /app
 
 COPY --from=build /app /app
