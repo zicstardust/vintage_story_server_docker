@@ -20,7 +20,7 @@ on:
 
 env:
   PLATAFORM_ARCH: linux/amd64
-  CONTAINER_REPO: ${{ vars.DOCKERHUB_USERNAME }}/vintage-story-dedicated-server
+  CONTAINER_REPO: ${{ vars.DOCKERHUB_USERNAME }}/${{ vars.DOCKERHUB_REPOSITORY }}
   
 jobs:
   build:

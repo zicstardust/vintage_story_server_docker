@@ -3,17 +3,13 @@ name: Update docker HUB README.md
 on:
   push:
     branches: [ "main" ]
-    paths:
-      - 'README.md'
-      - '.github/workflows/update-readme-docker-hub.yml'
+    paths: [ "README.md" ]
   pull_request:
     branches: [ "main" ]
-    paths:
-      - 'README.md'
-      - '.github/workflows/update-readme-docker-hub.yml'
+    paths: [ "README.md" ]
 
 env:
-  CONTAINER_REPO: ${{ vars.DOCKERHUB_USERNAME }}/vintage-story-dedicated-server
+  CONTAINER_REPO: ${{ vars.DOCKERHUB_USERNAME }}/${{ vars.DOCKERHUB_REPOSITORY }}
   
 jobs:
   build:
