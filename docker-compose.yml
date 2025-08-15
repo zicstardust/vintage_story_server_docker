@@ -5,6 +5,7 @@ services:
     build: .
     env_file: .env
     tty: true
+    stdin_open: true
     ports:
       - 42420:42420/tcp #Default Port
     volumes:

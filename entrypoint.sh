@@ -1,10 +1,11 @@
 #!/bin/bash
 
+/download_server.sh
+
 set -e
 
 : "${UID:=1000}"
 : "${GID:=1000}"
-#: "${USERNAME:=vintagestory}"
 
 if ! getent group vintagestory >/dev/null; then
     groupadd -g "$GID" vintagestory

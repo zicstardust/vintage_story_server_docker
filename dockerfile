@@ -1,34 +1,16 @@
-FROM debian:12-slim AS build
-
-ARG SERVER_VERSION="1.20.12"
-
-WORKDIR /app
-
-RUN apt-get update && apt-get install -y wget; \
-    wget https://cdn.vintagestory.at/gamefiles/stable/vs_server_linux-x64_${SERVER_VERSION}.tar.gz; \
-    tar xzf vs_server_linux-x64_${SERVER_VERSION}.tar.gz; \
-    rm -f vs_server_linux-x64_${SERVER_VERSION}.tar.gz
-
-RUN wget https://packages.microsoft.com/config/debian/12/packages-microsoft-prod.deb -O /app/packages-microsoft-prod.deb
-
-
-
 FROM debian:12-slim
 
 WORKDIR /app
 
-COPY --from=build /app /app
 COPY entrypoint.sh /entrypoint.sh
+COPY download_server.sh /download_server.sh
+COPY download_dotnet.sh /download_dotnet.sh
 
 RUN apt-get update; \
-    apt-get install -y ca-certificates; \
-    dpkg -i /app/packages-microsoft-prod.deb; \
-    rm -f /app/packages-microsoft-prod.deb; \
-    apt-get update; \
-    apt-get install -y dotnet-runtime-7.0 gosu
+    apt-get install -y gosu jq wget libc6 libgcc-s1 libgssapi-krb5-2 libicu72 libssl3 libstdc++6 zlib1g
 
 
-RUN chmod +x /entrypoint.sh
+RUN chmod +x /entrypoint.sh /download_server.sh /download_dotnet.sh
 
 EXPOSE 42420/tcp
 
