@@ -31,16 +31,6 @@ if [ -f /app/current_version ] && [ "$(cat /app/current_version)" == "$VERSION" 
     exit 0
 fi
 
-#install dotnet (or mono)
-if awk "BEGIN {exit !($VERSION <= 1.17.12)}"; then
-    DOTNET_VERSION="mono" /download_dotnet.sh
-elif [[ $VERSION == 1.2* ]] && [[ $VERSION != 1.20* ]]; then
-    /download_dotnet.sh
-else
-    DOTNET_VERSION="7.0.20" /download_dotnet.sh
-fi
-
-
 
 LEGACY_STABLE_FULL_URL="${LEGACY_STABLE_URL}${VERSION}.tar.gz"
 STABLE_FULL_URL="${STABLE_URL}${VERSION}.tar.gz"
@@ -78,3 +68,15 @@ tar xzf ${FILENAME:-vs_server_linux-x64_}${VERSION}.tar.gz
 rm -f ${FILENAME:-vs_server_linux-x64_}${VERSION}.tar.gz
 
 echo "$VERSION" > /app/current_version
+
+
+#install dotnet (or mono)
+if awk "BEGIN {exit !($VERSION <= 1.17.12)}"; then
+    DOTNET_VERSION="mono" /download_dotnet.sh
+elif awk "BEGIN {exit !($VERSION <= 1.21.0)}"; then
+    DOTNET_VERSION="7.0.20" /download_dotnet.sh
+else
+    /download_dotnet.sh
+fi
+
+exit 0

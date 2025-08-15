@@ -2,6 +2,10 @@
 
 /download_server.sh
 
+if [ $? != 0 ]; then
+    exit $?
+fi
+
 set -e
 
 : "${UID:=1000}"
