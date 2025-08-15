@@ -19,5 +19,8 @@ mkdir -p /data
 
 chown -R vintagestory:vintagestory /app /data
 
-exec gosu vintagestory "$@"
-#exec "$@"
+if [ -f "/app/VintagestoryServer.dll" ]; then
+    exec gosu vintagestory dotnet /app/VintagestoryServer.dll --dataPath /data
+else
+    exec gosu vintagestory mono /app/vintagestory/VintagestoryServer.exe --dataPath /data
+fi

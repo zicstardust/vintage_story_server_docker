@@ -4,7 +4,10 @@ set -e
 
 : "${VERSION:=latest}"
 
+#first compatible version 1.18.15
+#latest legacy version 1.17.12
 
+LEGACY_STABLE_URL="https://cdn.vintagestory.at/gamefiles/stable/vs_archive_"
 STABLE_URL="https://cdn.vintagestory.at/gamefiles/stable/vs_server_linux-x64_"
 UNSTABLE_URL="https://cdn.vintagestory.at/gamefiles/unstable/vs_server_linux-x64_"
 
@@ -23,12 +26,15 @@ elif [ "$VERSION" == "latest-unstable" ]; then
 fi
 
 
-if [ -f /app/VintagestoryServer.dll ] && [ -f /app/current_version ] && [ "$(cat /app/current_version)" == "$VERSION" ]; then
+if [ -f /app/current_version ] && [ "$(cat /app/current_version)" == "$VERSION" ]; then
     echo "Game Server ${VERSION} is downloaded"
     exit 0
 fi
 
-if [[ $VERSION == 1.2* ]] && [[ $VERSION != 1.20* ]]; then
+#install dotnet (or mono)
+if awk "BEGIN {exit !($VERSION <= 1.17.12)}"; then
+    DOTNET_VERSION="mono" /download_dotnet.sh
+elif [[ $VERSION == 1.2* ]] && [[ $VERSION != 1.20* ]]; then
     /download_dotnet.sh
 else
     DOTNET_VERSION="7.0.20" /download_dotnet.sh
@@ -36,6 +42,7 @@ fi
 
 
 
+LEGACY_STABLE_FULL_URL="${LEGACY_STABLE_URL}${VERSION}.tar.gz"
 STABLE_FULL_URL="${STABLE_URL}${VERSION}.tar.gz"
 UNSTABLE_FULL_URL="${UNSTABLE_URL}${VERSION}.tar.gz"
 
@@ -56,6 +63,10 @@ elif wget --spider -q "$UNSTABLE_FULL_URL" 2>/dev/null; then
     else
         echo "NOTE: Current version ${VERSION} is the latest unstable version"
     fi
+elif wget --spider -q "$LEGACY_STABLE_FULL_URL" 2>/dev/null; then
+    DOWNLOAD_URL="$LEGACY_STABLE_FULL_URL"
+    FILENAME="vs_archive_"
+    echo "Downloading Vintage Story Server version ${VERSION} from legacy stable..."
 else
     echo "ERROR: Version ${VERSION} not found in either stable or unstable channels"
     exit 1
@@ -63,7 +74,7 @@ fi
 
 
 wget -q "$DOWNLOAD_URL"
-tar xzf vs_server_linux-x64_${VERSION}.tar.gz
-rm vs_server_linux-x64_${VERSION}.tar.gz
+tar xzf ${FILENAME:-vs_server_linux-x64_}${VERSION}.tar.gz
+rm -f ${FILENAME:-vs_server_linux-x64_}${VERSION}.tar.gz
 
-echo "$VERSION" > current_version
+echo "$VERSION" > /app/current_version
