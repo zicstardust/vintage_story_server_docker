@@ -25,6 +25,8 @@ chown -R vintagestory:vintagestory /app /data
 
 if [ -f "/app/VintagestoryServer.dll" ]; then
     exec gosu vintagestory dotnet /app/VintagestoryServer.dll --dataPath /data
-else
+elif [ -f "/app/vintagestory/VintagestoryServer.exe" ]; then
     exec gosu vintagestory mono /app/vintagestory/VintagestoryServer.exe --dataPath /data
+else
+    exit 1
 fi
