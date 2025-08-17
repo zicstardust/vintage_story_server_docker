@@ -7,6 +7,6 @@ services:
     tty: true
     stdin_open: true
     ports:
-      - 42420:42420/tcp #Default Port
+      - 127.0.0.1:42420:42420/tcp #Default Port
     volumes:
       - ./data:/data
