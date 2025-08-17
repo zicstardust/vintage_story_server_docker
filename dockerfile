@@ -1,4 +1,8 @@
-FROM debian:12-slim
+FROM debian:13.0-slim
+
+ENV DEBIAN_FRONTEND="noninteractive"
+ENV UID=1000
+ENV GID=1000
 
 WORKDIR /app
 

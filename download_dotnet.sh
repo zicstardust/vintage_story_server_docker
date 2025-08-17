@@ -12,7 +12,7 @@ if [ "$DOTNET_VERSION" == "mono" ]; then
 else
     echo "Downloading .NET Runtime ${DOTNET_VERSION}..."
     apt-get update &> /dev/null
-    apt-get install -y libc6 libgcc-s1 libgssapi-krb5-2 libicu72 libssl3 libstdc++6 zlib1g  &> /dev/null
+    apt-get install -y libc6 libgcc-s1 libgssapi-krb5-2 libicu76 libssl3 libstdc++6 zlib1g  &> /dev/null
     mkdir -p /opt/dotnet
     cd /opt/dotnet
     wget https://builds.dotnet.microsoft.com/dotnet/Runtime/${DOTNET_VERSION}/dotnet-runtime-${DOTNET_VERSION}-linux-x64.tar.gz  &> /dev/null
