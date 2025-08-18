@@ -8,15 +8,15 @@ fi
 
 set -e
 
-: "${UID:=1000}"
-: "${GID:=1000}"
+: "${PUID:=1000}"
+: "${PGID:=1000}"
 
 if ! getent group vintagestory >/dev/null; then
-    groupadd -g "$GID" vintagestory
+    groupadd -g "$PGID" vintagestory
 fi
 
 if ! id -u vintagestory >/dev/null 2>&1; then
-    useradd -m -u "$UID" -g "$GID" -s /sbin/nologin vintagestory
+    useradd -m -u "$PUID" -g "$PGID" -s /sbin/nologin vintagestory
 fi
 
 mkdir -p /data

@@ -31,8 +31,8 @@ services:
 | variables | Function | Default |
 | :----: | --- | --- |
 | `TZ` | Set Timezone | |
-| `UID` | Set UID | 1000 |
-| `GID` | Set GID | 1000 |
+| `PUID` | Set UID | 1000 |
+| `PGID` | Set GID | 1000 |
 | `VERSION` | Set server version | latest |
 
 
