@@ -81,6 +81,7 @@ if [[ $(uname -m) == "aarch64" ]]; then
     elif [[ $VERSION == 1.21* ]]; then
         ARM64_RELEASE_URL="https://github.com/anegostudios/VintagestoryServerArm64/releases/download/1.21.0/vs_server_linux-arm64_1.21.0.tar.gz"
     else
+        echo "Version ${VERSION} does not support ARM64"
         exit 1
     fi
     wget -q "$ARM64_RELEASE_URL" -o vs_server_arm64.tar.gz

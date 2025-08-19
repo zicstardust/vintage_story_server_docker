@@ -7,7 +7,7 @@ set -e
 
 if [[ $(uname -m) == "aarch64" ]]; then
   ARCH="arm64"
-elif [[ $(uname -m) == "x86_64" ]]; then
+else
   ARCH="x64"
 fi
 
