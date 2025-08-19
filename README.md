@@ -8,7 +8,7 @@
 
 | Tag | Architecture | Description |
 | :----: | :----: |--- |
-| [`latest`](https://github.com/zicstardust/vintage_story_server_docker/blob/main/dockerfile) | amd64 | Dedicated Server |
+| [`latest`](https://github.com/zicstardust/vintage_story_server_docker/blob/main/dockerfile) | amd64, arch64 | Dedicated Server |
 
 ## Usage
 ### docker-compose
