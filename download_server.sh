@@ -72,14 +72,15 @@ echo "$VERSION" > /app/current_version
 
 if [[ $(uname -m) == "aarch64" ]]; then
     rm -rf VintagestoryServer VintagestoryServer.deps.json VintagestoryServer.dll VintagestoryServer.pdb VintagestoryServer.runtimeconfig.json Lib
+    ARM64_URL="https://github.com/anegostudios/VintagestoryServerArm64/releases/download"
     if [[ $VERSION == 1.18* ]]; then
-        ARM64_RELEASE_URL="https://github.com/anegostudios/VintagestoryServerArm64/releases/download/1.18.8/vs_server_linux-arm64-1.18.tar.gz"
+        ARM64_RELEASE_URL="${ARM64_URL}/1.18.8/vs_server_linux-arm64-1.18.tar.gz"
     elif [[ $VERSION == 1.19* ]]; then
-        ARM64_RELEASE_URL="https://github.com/anegostudios/VintagestoryServerArm64/releases/download/1.19.0-rc.6/vs_server_linux-arm64-1.19.tar.gz"
+        ARM64_RELEASE_URL="${ARM64_URL}/1.19.0-rc.6/vs_server_linux-arm64-1.19.tar.gz"
     elif [[ $VERSION == 1.20* ]]; then
-        ARM64_RELEASE_URL="https://github.com/anegostudios/VintagestoryServerArm64/releases/download/1.20.0-rc.8/vs_server_linux-arm64_1.20.0.tar.gz"
+        ARM64_RELEASE_URL="${ARM64_URL}/1.20.0-rc.8/vs_server_linux-arm64_1.20.0.tar.gz"
     elif [[ $VERSION == 1.21* ]]; then
-        ARM64_RELEASE_URL="https://github.com/anegostudios/VintagestoryServerArm64/releases/download/1.21.0/vs_server_linux-arm64_1.21.0.tar.gz"
+        ARM64_RELEASE_URL="${ARM64_URL}/1.21.0/vs_server_linux-arm64_1.21.0.tar.gz"
     else
         echo "Version ${VERSION} does not support ARM64"
         exit 1
