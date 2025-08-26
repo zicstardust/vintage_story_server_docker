@@ -4,8 +4,6 @@ set -e
 
 : "${VERSION:=latest}"
 
-#first compatible version 1.18.15
-#latest legacy version 1.17.12
 
 LEGACY_STABLE_URL="https://cdn.vintagestory.at/gamefiles/stable/vs_archive_"
 STABLE_URL="https://cdn.vintagestory.at/gamefiles/stable/vs_server_linux-x64_"
