@@ -2,7 +2,7 @@
 
 set -e
 
-: "${DOTNET_VERSION:=8.0.19}"
+: "${DOTNET_VERSION:=8.0.20}"
 
 
 if [ "$DOTNET_VERSION" == "mono" ]; then
