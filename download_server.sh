@@ -2,7 +2,7 @@
 
 set -e
 
-: "${VERSION:=latest}"
+: "${VERSION:=stable}"
 
 
 LEGACY_STABLE_URL="https://cdn.vintagestory.at/gamefiles/stable/vs_archive_"
@@ -17,9 +17,9 @@ LATEST_UNSTABLE=$(echo "$UNSTABLE_JSON" | jq -r 'keys_unsorted[0]')
 
 
 
-if [ "$VERSION" == "latest" ]; then
+if [ "$VERSION" == "stable" ]; then
     VERSION="$LATEST_STABLE"
-elif [ "$VERSION" == "latest-unstable" ]; then
+elif [ "$VERSION" == "unstable" ]; then
     VERSION="$LATEST_UNSTABLE"
 fi
 

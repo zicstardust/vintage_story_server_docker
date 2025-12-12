@@ -32,13 +32,13 @@ services:
 | `TZ` | Set Timezone | |
 | `PUID` | Set UID | 1000 |
 | `PGID` | Set GID | 1000 |
-| `VERSION` | Set server version | latest |
+| `VERSION` | Set server version | stable |
 
 
 ### Set VERSION
 | Value | Function |
 | :----: | --- |
-| `latest` | Latest stable version |
-| `latest-unstable` | Latest unstable version |
+| `stable` | Latest stable version |
+| `unstable` | Latest unstable version |
 | [`x.x.x`](https://api.vintagestory.at/stable.json) | Exemple any stable version |
 | [`x.x.x-rc.x`](https://api.vintagestory.at/unstable.json) | Exemple any unstable version |
