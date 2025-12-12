@@ -19,7 +19,6 @@ services:
     image: zicstardust/vintage-story-dedicated-server:latest
     environment:
       TZ: America/New_York
-      VERSION: "latest"
     ports:
       - 42420:42420/tcp #Default_Port
     volumes:
@@ -36,7 +35,7 @@ services:
 | `VERSION` | Set server version | latest |
 
 
-### Set Version
+### Set VERSION
 | Value | Function |
 | :----: | --- |
 | `latest` | Latest stable version |
