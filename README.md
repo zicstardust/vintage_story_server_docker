@@ -1,4 +1,4 @@
-# Vintage Story Dedicated Server Docker 
+# Vintage Story Dedicated Server 
 
 [GitHub](https://github.com/zicstardust/vintage-story-server-docker)
 
