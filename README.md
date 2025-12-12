@@ -1,6 +1,6 @@
 # Vintage Story Dedicated Server Docker 
 
-[GitHub](https://github.com/zicstardust/vintage_story_server_docker)
+[GitHub](https://github.com/zicstardust/vintage-story-server-docker)
 
 [Docker Hub](https://hub.docker.com/r/zicstardust/vintage-story-dedicated-server)
 
@@ -8,7 +8,7 @@
 
 | Tag | Architecture | Description |
 | :----: | :----: |--- |
-| [`latest`](https://github.com/zicstardust/vintage_story_server_docker/blob/main/dockerfile) | amd64 | Dedicated Server |
+| [`latest`](https://github.com/zicstardust/vintage-story-server-docker/blob/main/dockerfile) | amd64 | Dedicated Server |
 
 ## Usage
 ### docker-compose
