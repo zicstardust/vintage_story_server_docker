@@ -17,6 +17,7 @@ services:
   server:
     container_name: vintage-story-server
     image: zicstardust/vintage-story-dedicated-server:latest
+    restart: unless-stopped
     environment:
       TZ: America/New_York
     ports:
