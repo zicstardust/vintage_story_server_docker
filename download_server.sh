@@ -24,12 +24,6 @@ elif [ "$VERSION" == "unstable" ]; then
 fi
 
 
-if [ -f /app/current_version ] && [ "$(cat /app/current_version)" == "$VERSION" ]; then
-    echo "Game Server ${VERSION} is downloaded"
-    exit 0
-fi
-
-
 LEGACY_STABLE_FULL_URL="${LEGACY_STABLE_URL}${VERSION}.tar.gz"
 STABLE_FULL_URL="${STABLE_URL}${VERSION}.tar.gz"
 UNSTABLE_FULL_URL="${UNSTABLE_URL}${VERSION}.tar.gz"
@@ -64,8 +58,6 @@ fi
 wget -q "$DOWNLOAD_URL"
 tar xzf ${FILENAME:-vs_server_linux-x64_}${VERSION}.tar.gz
 rm -f ${FILENAME:-vs_server_linux-x64_}${VERSION}.tar.gz
-
-echo "$VERSION" > /app/current_version
 
 
 #install dotnet (or mono)
