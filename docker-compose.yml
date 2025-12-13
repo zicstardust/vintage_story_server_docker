@@ -2,6 +2,7 @@ services:
   app:
     container_name: vintage_story_dedicated_server
     image: vintage_story_dedicated_server:latest
+    restart: unless-stopped
     build: .
     env_file: .env
     tty: true
