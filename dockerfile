@@ -10,7 +10,11 @@ COPY download_dotnet.sh /download_dotnet.sh
 COPY run.sh /run.sh
 
 RUN apt-get update; \
-    apt-get install -y gosu jq wget
+    apt-get install -y gosu jq wget; \
+    apt-get -y autoremove; \
+	apt-get -y autoclean; \
+	apt-get -y clean; \
+	rm -Rf /var/lib/apt/lists/*
 
 
 RUN chmod +x /entrypoint.sh /download_server.sh /download_dotnet.sh /run.sh
