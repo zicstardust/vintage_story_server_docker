@@ -21,3 +21,9 @@ else
     ln -s /opt/dotnet/dotnet /usr/local/bin/dotnet
     cd /app
 fi
+
+
+apt-get -y autoremove &> /dev/null
+apt-get -y autoclean &> /dev/null
+apt-get -y clean &> /dev/null
+rm -Rf /var/lib/apt/lists/*

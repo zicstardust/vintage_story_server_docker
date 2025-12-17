@@ -5,16 +5,14 @@ on:
     branches: [ "main" ]
     paths:
       - 'dockerfile'
-      - 'download_dotnet.sh'
-      - 'download_server.sh'
+      - 'src/**'
       - 'entrypoint.sh'
       - '.github/workflows/docker-image-latest.yml'
   pull_request:
     branches: [ "main" ]
     paths:
       - 'dockerfile'
-      - 'download_dotnet.sh'
-      - 'download_server.sh'
+      - 'src/**'
       - 'entrypoint.sh'
       - '.github/workflows/docker-image-latest.yml'
 

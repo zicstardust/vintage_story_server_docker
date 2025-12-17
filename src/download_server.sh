@@ -34,16 +34,12 @@ if wget --spider -q "$STABLE_FULL_URL" 2>/dev/null; then
     echo "Downloading Vintage Story Server version ${VERSION} from stable..."
     if [ "$VERSION" != "$LATEST_STABLE" ]; then
         echo "NOTE: You are running stable version ${VERSION} but version ${LATEST_STABLE} is available!"
-    else
-        echo "NOTE: Current version ${VERSION} is the latest stable version"
     fi
 elif wget --spider -q "$UNSTABLE_FULL_URL" 2>/dev/null; then
     DOWNLOAD_URL="$UNSTABLE_FULL_URL"
     echo "Downloading Vintage Story Server version ${VERSION} from unstable..."
     if [ "$VERSION" != "$LATEST_UNSTABLE" ]; then
         echo "NOTE: You are running unstable version ${VERSION} but version ${LATEST_UNSTABLE} is available!"
-    else
-        echo "NOTE: Current version ${VERSION} is the latest unstable version"
     fi
 elif wget --spider -q "$LEGACY_STABLE_FULL_URL" 2>/dev/null; then
     DOWNLOAD_URL="$LEGACY_STABLE_FULL_URL"
@@ -63,7 +59,7 @@ rm -f ${FILENAME:-vs_server_linux-x64_}${VERSION}.tar.gz
 #install dotnet (or mono)
 if awk "BEGIN {exit !($VERSION <= 1.17.12)}"; then
     DOTNET_VERSION="mono" /download_dotnet.sh
-elif awk "BEGIN {exit !($VERSION <= 1.21.0)}"; then
+elif awk "BEGIN {exit !($VERSION <= 1.20.12)}"; then
     DOTNET_VERSION="7.0.20" /download_dotnet.sh
 else
     /download_dotnet.sh
