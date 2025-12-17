@@ -11,12 +11,12 @@
 | [`latest`](https://github.com/zicstardust/vintage-story-server-docker/blob/main/dockerfile) | amd64 | Dedicated Server |
 
 ## Usage
-### docker-compose
+### Compose
 ```
 services:
-  server:
+  vsserver:
     container_name: vintage-story-server
-    image: zicstardust/vintage-story-dedicated-server:latest
+    image: docker.io/zicstardust/vintage-story-dedicated-server:latest
     restart: unless-stopped
     environment:
       TZ: America/New_York
