@@ -5,9 +5,9 @@ services:
     restart: unless-stopped
     build: .
     env_file: .env
-    tty: true
-    stdin_open: true
+    #tty: true
+    #stdin_open: true
     ports:
-      - 127.0.0.1:42420:42420/tcp #Default Port
+      - 42420:42420/tcp
     volumes:
       - ./data:/data
