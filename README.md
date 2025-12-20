@@ -2,13 +2,19 @@
 
 [GitHub](https://github.com/zicstardust/vintage-story-dedicated-server)
 
-[Docker Hub](https://hub.docker.com/r/zicstardust/vintage-story-dedicated-server)
-
-## Tags
+## Container
+### Tags
 
 | Tag | Architecture | Description |
-| :----: | :----: |--- |
+| :----: | :----: | :----: |
 | [`latest`](https://github.com/zicstardust/vintage-story-dedicated-server/blob/main/dockerfile) | amd64 | Dedicated Server |
+
+### Registries
+| Registry | Full image name | Description |
+| :----: | :----: | :----: |
+| [`docker.io`](https://hub.docker.com/r/zicstardust/vintage-story-dedicated-server) | `docker.io/zicstardust/vintage-story-dedicated-server` | Docker Hub |
+| [`ghcr.io`](https://github.com/zicstardust/vintage-story-dedicated-server/pkgs/container/vintage-story-dedicated-server) | `ghcr.io/zicstardust/vintage-story-dedicated-server` | GitHub |
+
 
 ## Usage
 ### Compose
